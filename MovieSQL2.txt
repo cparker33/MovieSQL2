@@ -1,0 +1,166 @@
+
+
+// -------------------------
+Get the average rating for a movie
+
+SELECT m.title, AVG(r.rating)
+FROM movies m
+JOIN ratings r ON m.movieid = r.movieid
+WHERE m.title = 'Snatch (2000)'
+GROUP BY m.title;
+
+// -------------------------
+Get the total ratings for a movie
+
+SELECT m.title, SUM(r.rating)
+FROM movies m
+JOIN ratings r ON m.movieid = r.movieid
+WHERE m.title = 'Snatch (2000)'
+GROUP BY m.title;
+
+// -------------------------
+Get the total amount of movies for each genre
+
+SELECT g.genres, COUNT(mg.genre_id)
+FROM genre g
+JOIN movie_genre mg ON g.id = mg.genre_id
+GROUP BY g.genres;
+
+// -------------------------
+Get the average rating for a user
+
+SELECT ratings.userid, AVG(ratings.rating)
+FROM ratings
+WHERE ratings.userid = 33
+GROUP BY ratings.userid;
+
+// -------------------------
+Find the user with the most ratings
+
+SELECT r.userid, COUNT(r.rating)
+FROM ratings r
+GROUP BY r.userid
+ORDER BY COUNT(r.rating) DESC
+LIMIT 1;
+
+// -------------------------
+Find the user with the highest average rating
+
+SELECT r.userid, AVG(r.rating)
+FROM ratings r
+GROUP BY r.userid
+ORDER BY AVG(r.rating) DESC
+LIMIT 1;
+
+// -------------------------
+Find the user with the highest average rating with more than 50 reviews
+
+SELECT r.userid, AVG(r.rating), COUNT(r.rating) AS ttl
+FROM ratings r
+GROUP BY r.userid
+ORDER BY AVG(r.rating) DESC
+LIMIT 1;
+
+// -------------------------
+Find the movies with an average rating over 4
+
+SELECT m.title, AVG(r.rating) AS abv
+FROM ratings r
+JOIN movies m ON r.movieid = m.movieid
+GROUP BY m.title
+HAVING AVG(r.rating) >= 4;
+
+// -----------------------
+For each genre find the total number of reviews as well as the average review and sort by the highest average review.
+
+SELECT g.genres, COUNT(mg.genre_id)
+FROM genre g
+JOIN movie_genre mg ON g.id = mg.genre_id
+GROUP BY g.genres;
+
+// ------------------------
+
+INSERT INTO actors(name, char_name, dob, movieid)
+    VALUES ('Bob01', 'Chr01', '11-03-1981',25),
+    ('Bob02', 'Chr01', '11-03-1981',25),
+    ('Bob03', 'Chr02', '11-03-1982',25),
+    ('Bob04', 'Chr03', '11-03-1983',25),
+    ('Bob05', 'Chr05', '11-03-1984',25),
+    ('Bob06', 'Chr06', '11-03-1985',25),
+    ('Bob07', 'Chr07', '11-03-1986',25),
+    ('Bob08', 'Chr08', '11-03-1987',25),
+    ('Bob09', 'Chr09', '11-03-1988',25),
+    ('Bob10', 'Chr10', '11-03-1989',25)
+
+
+
+
+
+
+    ///
+
+
+    ///
+
+
+INSERT INTO actors(name, char_name, dob, movieid)
+    VALUES ('Bob01', 'Chr01', '11-03-1981',25),
+    ('Bob02', 'Chr01', '11-03-1981',25),
+    ('Bob03', 'Chr02', '11-03-1982',25),
+    ('Bob04', 'Chr03', '11-03-1983',25),
+    ('Bob05', 'Chr05', '11-03-1984',25),
+    ('Bob06', 'Chr06', '11-03-1985',25),
+    ('Bob07', 'Chr07', '11-03-1986',25),
+    ('Bob08', 'Chr08', '11-03-1987',25),
+    ('Bob09', 'Chr09', '11-03-1988',25),
+    ('Bob10', 'Chr10', '11-03-1989',25)
+
+INSERT INTO actors(name, char_name, dob, movieid)
+    VALUES ('Bob11', 'Chr11', '11-03-1981',10),
+    ('Bob12', 'Chr12', '11-03-1981',10),
+    ('Bob13', 'Chr13', '11-03-1982',10),
+    ('Bob14', 'Chr14', '11-03-1983',10),
+    ('Bob15', 'Chr15', '11-03-1984',10),
+    ('Bob16', 'Chr16', '11-03-1985',10),
+    ('Bob17', 'Chr17', '11-03-1986',10),
+    ('Bob18', 'Chr18', '11-03-1987',10),
+    ('Bob19', 'Chr19', '11-03-1988',10),
+    ('Bob20', 'Chr20', '11-03-1989',10)
+
+
+INSERT INTO actors(name, char_name, dob, movieid)
+    VALUES ('Bob21', 'Chr21', '11-03-1981',10),
+    ('Bob22', 'Chr22', '11-03-1981',10),
+    ('Bob23', 'Chr23', '11-03-1982',10),
+    ('Bob24', 'Chr24', '11-03-1983',10),
+    ('Bob25', 'Chr25', '11-03-1984',10),
+    ('Bob26', 'Chr26', '11-03-1985',10),
+    ('Bob27', 'Chr27', '11-03-1986',10),
+    ('Bob28', 'Chr28', '11-03-1987',10),
+    ('Bob29', 'Chr29', '11-03-1988',10),
+    ('Bob30', 'Chr30', '11-03-1989',10)
+
+
+UPDATE movies
+SET mpaa_rating = 'PG'
+WHERE movieid = '10';
+
+UPDATE movies
+SET mpaa_rating = 'PG'
+WHERE movieid = '15';
+
+UPDATE movies
+SET mpaa_rating = 'PG'
+WHERE movieid = '25';
+
+UPDATE movies
+SET mpaa_rating = 'PG'
+WHERE movieid = '55';
+
+UPDATE movies
+SET mpaa_rating = 'PG'
+WHERE movieid = '65';
+
+
+
+
